@@ -5,39 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/js/bootstrap.bundle.js">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/">
+
     <title>Hem</title>
 </head>
 
 <body>
-
     <div class="container">
-        <div class="jumbotron">
-            <div class="row">
-                <div class="col-sm">
-                    <form action="php/display_images.php" method="post">
-                        <input name="search-field" type="text" placeholder="sök t ex dogs">
-                        <input type="submit" value="Sök">
-                    </form>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="col-sm">
-                    <nav class="navbar">
-                        <ul>
-                            <li>
-                                <a href="php/galleri.php">Galleri</a>
-                            </li>
-                            <li>
-                                <a href="php/categories.php">Alla kategorier</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Meny
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="php/galleri.php">Galleri</a>
+                            <a class="dropdown-item" href="php/categories.php">Kategorier</a>
+                        </div>
+                    </li>
+                </ul>
+                <form action="php/display_images.php" method="post" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" name="search-field" type="text" placeholder="sök t ex dogs">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Sök">Sök</button>
+                </form>
             </div>
+        </nav>
+        <div class="jumbotron">
+
         </div>
-    </div>
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="css/bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>
