@@ -11,10 +11,7 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-    <a href="../../index.html">☇ Hem</a>
-    <?php
-        echo "<h1>$d Katalogen</h1>";
-    ?>
+    <a href="../php/categories.php">☇ Tillbaka</a>
             <div class="row">
                 <?php
                     //skanna katalogen till en fält
