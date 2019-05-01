@@ -12,6 +12,7 @@
 <body>
     <div class="container">
         <div class="jumbotron">
+            <a href=""></a>
             <div class="row">
                 <?php
                     //svara på inkommande post request från submit
@@ -27,13 +28,6 @@
                                 goto hejda;
 
                             echo "<title>$search_fetch</title>";
-
-
-                            /*
-                                TODO...
-                                Lägg till non-casesensitive sökning.
-                                får vara casesensitive för tillfället.
-                            */
                             
                             //kolla om katalogen finns
                             $dir = "../imgs/".$search_fetch;
@@ -65,17 +59,19 @@
                                 hejda:
                                 echo"
                                 <div class='col-sm'>
-                                    <a href='../index.html'>Hem</a>
-                                </div>
-            
-                                <div class='col-sm'>
+                                    <a href='../index.html'>☇ Hem</a>
                                     <h1>Hittade inga resultat.</h1>
+                                    <h4>Se kategorier <a href='categories.php'>här</a>.</h4>
                                 </div>
                                 ";
                             }
                         }
-                        else //säg hejdå om det inte var en giltlig post förfrågan
+                        else//säg hejdå om det inte var en giltlig post förfrågan
+                        {
+                            echo "<a href='../index.html'>☇ Hem</a>";
                             echo "<h1>inte en giltlig POST förfrågan.</h1>";
+                        } 
+                            
                     }
                 ?>
             </div>
@@ -84,6 +80,3 @@
 </body>
 
 </html>
-
-
-
