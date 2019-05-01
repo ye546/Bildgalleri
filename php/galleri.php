@@ -14,6 +14,8 @@
     
         <div class="jumbotron">
         <a href="../index.html">☇ Hem</a>
+        <br>
+        <a href="categories.php">☇ Kategorier</a>
         <h1>Bildgalleri.</h1>
             <div class="row">
                 <?php
