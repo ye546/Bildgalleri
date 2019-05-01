@@ -15,7 +15,6 @@
         <div class="jumbotron">
         <a href="../index.html">☇ Hem</a>
         <br>
-        <a href="categories.php">☇ Kategorier</a>
             <div class="row">
                 <?php
                     //svara på inkommande post request från submit
