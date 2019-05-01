@@ -62,7 +62,6 @@
                                 hejda:
                                 echo"
                                 <div class='col-sm'>
-                                    <a href='../index.html'>☇ Hem</a>
                                     <h1>Hittade inga resultat.</h1>
                                     <h4>Se kategorier <a href='categories.php'>här</a>.</h4>
                                 </div>
@@ -71,6 +70,7 @@
                         }
                         else//säg hejdå om det inte var en giltlig post förfrågan
                         {
+                            echo "<a href='../index.html'>☇ Hem</a>";
                             echo "<h1>inte en giltlig POST förfrågan.</h1>";
                         } 
                             
