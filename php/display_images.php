@@ -71,7 +71,6 @@
                         }
                         else//säg hejdå om det inte var en giltlig post förfrågan
                         {
-                            echo "<a href='../index.html'>☇ Hem</a>";
                             echo "<h1>inte en giltlig POST förfrågan.</h1>";
                         } 
                             
