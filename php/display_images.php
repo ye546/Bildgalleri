@@ -11,8 +11,11 @@
 
 <body>
     <div class="container">
+
         <div class="jumbotron">
-            <a href=""></a>
+        <a href="../index.html">☇ Hem</a>
+        <br>
+        <a href="categories.php">☇ Kategorier</a>
             <div class="row">
                 <?php
                     //svara på inkommande post request från submit
