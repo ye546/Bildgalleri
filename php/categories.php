@@ -11,6 +11,8 @@
 <body>
 <div class="container">
         <div class="jumbotron">
+        <a href="../index.html">☇ Hem</a>
+        <h1>Välj en kategori.</h1>
             <div class="row">
                 <ul>
                     <?php
@@ -23,7 +25,7 @@
                             if($d == "." || $d == '..')
                                 continue;
                             else
-                                echo "<li><a href='../imgs/$d'>$d</a></li>";
+                                echo "<li><div class='categoriDiv'><a class='nav-link text-blue' href='../imgs/$d'>$d</a></div></li>";
                         }
                     ?>
                 </ul>
@@ -32,6 +34,3 @@
     </div>
 </body>
 </html>
-
-
-
