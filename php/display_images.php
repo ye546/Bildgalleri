@@ -17,62 +17,52 @@
         <br>
             <div class="row">
                 <?php
-                    //svara på inkommande post request från submit
-                    if($_SERVER['REQUEST_METHOD'] == 'POST')
-                    {
-                        //kolla om det verkligen är en inkommande $_POST förfrågan
-                        if(isset($_POST))
-                        {
-                            //hämta texten från searchfield formen
-                            $search_fetch = $_POST['search-field']; 
-                            
-                            if(empty($search_fetch))
-                                goto hejda;
+                    //starta session för att kunna hämta data från redirect.php
+                    session_start();
 
-                            echo "<title>$search_fetch</title>";
+                    //hämta data från redirect.php
+                    $search_fetch = $_SESSION['srchfield']; 
                             
-                            //kolla om katalogen finns
-                            $dir = "../imgs/".$search_fetch;
-                            if(is_dir($dir))
-                            {
-                                //skanna katalogen till en fält
-                                $file_array = scandir($dir);
+                    //kolla om sökfältet var tomt
+                    if(empty($search_fetch))
+                        goto hejda;
+
+                    echo "<title>$search_fetch</title>";
+                            
+                    //kolla om katalogen finns
+                    $dir = "../imgs/".$search_fetch;
+                    if(is_dir($dir))
+                    {
+                        //skanna katalogen till en fält
+                        $file_array = scandir($dir);
                                 
 
-                                //läs igenom fältet
-                                foreach($file_array as $f)
-                                {
-                                    //hämta filinformation för att kolla dess filändelse
-                                    $file_extension = pathinfo($f);
+                        //läs igenom fältet
+                        foreach($file_array as $f)
+                        {
+                             //hämta filinformation för att kolla dess filändelse
+                            $file_extension = pathinfo($f);
                                     
-                                    $f_path = $dir."/".$f;
+                            $f_path = $dir."/".$f;
 
-                                    //än så länge hanterar vi bara png och jpg filer, skippa att visa allting annat.
-                                    if($file_extension['extension'] == "png" || $file_extension['extension'] == "jpg")
-                                    {
-                                        //visa bild(er)
-                                        
-                                        echo "<a href='$f_path'><img class='rounded' height='100px' width='100px'src='$f_path' alt='bild'></a>";
-                                    }
-                                }
-                            }
-                            else if(!is_dir($search_fetch))//om inte, gör detta
+                            //än så länge hanterar vi bara png och jpg filer, skippa att visa allting annat.
+                            if($file_extension['extension'] == "png" || $file_extension['extension'] == "jpg")
                             {
-                                hejda:
-                                echo"
-                                <div class='col-sm'>
-                                    <h1>Hittade inga resultat.</h1>
-                                    <h4>Se kategorier <a href='categories.php'>här</a>.</h4>
-                                </div>
-                                ";
+                                //visa bild(er)
+                                        
+                                echo "<a href='$f_path'><img class='rounded' height='100px' width='100px'src='$f_path' alt='bild'></a>";
                             }
                         }
-                        else//säg hejdå om det inte var en giltlig post förfrågan
-                        {
-                            echo "<a href='../index.html'>☇ Hem</a>";
-                            echo "<h1>inte en giltlig POST förfrågan.</h1>";
-                        } 
-                            
+                    }
+                    else if(!is_dir($search_fetch))//om inte, gör detta
+                    {
+                        hejda:
+                        echo"
+                        <div class='col-sm'>
+                            <h1>Hittade inga resultat.</h1>
+                            <h4>Se kategorier <a href='categories.php'>här</a>.</h4>
+                        </div>
+                        ";
                     }
                 ?>
             </div>
