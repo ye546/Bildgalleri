@@ -6,20 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/bootstrap-4.3.1-dist/css/bootstrap.css">
-    <title>Document</title>
 </head>
 <body>
 <div class="container">
     <div class="jumbotron">
-    <a href="../php/categories.php">☇ Tillbaka</a>
+    <a href="../../php/categories.php">☇ Tillbaka</a>
             <div class="row">
                 <?php
                     //skanna katalogen till en fält
                     $dir = scandir(".");
+                    
+                    //tar bort dem två första indexeringarna ur fältet för dem två är bara '.' & '..'
+                    unset($dir[0]);
+                    unset($dir[1]);
+
+                    //katalognamn som titel
+                    $dirname = basename(__DIR__);
+                    echo "<title>$dirname</title>";
+
                     foreach($dir as $d)
                     {
-                        //$file_path = $dir."/".$d;
                         $file_extension = pathinfo($d);
+                        
                         //än så länge hanterar vi bara png och jpg filer, skippa att visa allting annat.
                         if($file_extension['extension'] == "png" || $file_extension['extension'] == "jpg")
                         {
