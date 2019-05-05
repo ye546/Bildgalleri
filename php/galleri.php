@@ -20,30 +20,32 @@
             <div class="row">
                 <?php
                     //skanna alla kataloger som finns 
-                        //set main directory
-                        $mainDir = '../imgs';
+                    //set main directory
+                    $mainDir = '../imgs';
+                    
+                    //hämtar underkatalog
+                    $subDirectories = scandir($mainDir);
 
-                        //gets sub directories of PDFS directory
-                        $subDirectories = scandir($mainDir);
+                    //tar bort dem två första indexeringarna ur fältet för dem två är bara '.' & '..'
+                    unset($subDirectories[0]);
+                    unset($subDirectories[1]);
 
-                        //removes the first two indexes in the directories array that are just dots
-                        unset($subDirectories[0]);
-                        unset($subDirectories[1]);
+                    //Första loopen genom alla underkataloger
+                    foreach($subDirectories as $subDirectory) 
+                    {
+                        //loopa sedan igenom alla filer i varje underkatalog
+                        foreach(glob($mainDir.'/'.$subDirectory.'/*') as $file) 
+                        {
+                            //hämta filinformation för att kolla dess filändelse
+                            $file_extension = pathinfo($file);
 
-                        // first loop through all sub directories ...
-                        foreach($subDirectories as $subDirectory) {
-
-                            //echo '<h1>'.$subDirectory.'</h1>';
-                            // ... and then loop through all files in each sub directory
-                            foreach(glob($mainDir.'/'.$subDirectory.'/*') as $file) 
+                            //Visa bara png och jpg filer
+                            if($file_extension['extension'] == "png" || $file_extension['extension'] == "jpg")
                             {
-                                $file_extension = pathinfo($file);
-                                if($file_extension['extension'] == "png" || $file_extension['extension'] == "jpg")
-                                {
-                                    echo "<a href='$file'><img class='rounded' height='100px' width='100px'src='$file' alt='bild'></a>";
-                                }
+                                echo "<a href='$file'><img class='rounded' height='100px' width='100px'src='$file' alt='bild'></a>";
                             }
                         }
+                    }
                 ?>
             </div>
         </div>
