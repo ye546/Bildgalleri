@@ -1,22 +1,46 @@
 img{
-    margin: 5px;
-    border: .5px solid red !important;
+    /*margin: 5px;
+    border: .5px solid red !important;*/
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 img:hover{
-    -webkit-box-shadow: 0px -1px 12px 4px rgba(0,0,0,0.55);
+    /*-webkit-box-shadow: 0px -1px 12px 4px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px -1px 12px 4px rgba(0,0,0,0.55);
     box-shadow: 0px -1px 12px 4px rgba(0,0,0,0.55);
-    border: none !important;
+    border: none !important;*/
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
 }
 
 .categoriDiv{
     width: 100w;
     height: 30px;
     margin: 15px;
+    font-size: 15pt;
 }
 
 div.categoriDiv a:hover{
     background-color: rgb(190, 190, 190);
     border-radius: 5px;
+    color: white;
+}
+
+#searchbar-row{
+    background-color: #f8f9fa !important;
+}
+
+#row1-content{
+    font-family: 'Ubuntu Mono', monospace;
+    height: 100vh;
+}
+
+#row1{
+    margin-top: 150px !important;
+}
+
+#row1-content h3{
+    font-size: 50pt;
 }
