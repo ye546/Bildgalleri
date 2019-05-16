@@ -11,38 +11,46 @@
 
 <body>
     <div class="container">
-
         <div class="jumbotron">
         <a href="../index.html">☇ Hem</a>
         <br>
+            <?php
+                //starta session för att kunna hämta data från redirect.php
+                session_start();
+
+                //hämta data från redirect.php
+                $search_fetch = $_SESSION['srchfield']; 
+              
+                //kolla om sökfältet var tomt
+                if(empty($search_fetch))
+                    goto hejda;
+
+                //kolla om katalogen finns
+                $dir = "../imgs/".$search_fetch;
+
+
+                //skriv katalognamnet på skärmen och sätt titeln till dess namn
+                if(is_dir($dir))
+                {
+                    echo "<title>$search_fetch</title>";
+                    echo "<h1>Här visas bilder från <span style='font-weight: bold;'>$search_fetch</span></h1>";
+                }           
+            ?>
+
             <div class="row">
                 <?php
-                    //starta session för att kunna hämta data från redirect.php
-                    session_start();
-
-                    //hämta data från redirect.php
-                    $search_fetch = $_SESSION['srchfield']; 
-                            
-                    //kolla om sökfältet var tomt
-                    if(empty($search_fetch))
-                        goto hejda;
-
-                    echo "<title>$search_fetch</title>";
-                            
-                    //kolla om katalogen finns
-                    $dir = "../imgs/".$search_fetch;
                     if(is_dir($dir))
                     {
+
                         //skanna katalogen till en fält
                         $file_array = scandir($dir);
-                                
 
                         //läs igenom fältet
                         foreach($file_array as $f)
                         {
-                             //hämta filinformation för att kolla dess filändelse
+                            //hämta filinformation för att kolla dess filändelse
                             $file_extension = pathinfo($f);
-                                    
+
                             $f_path = $dir."/".$f;
 
                             //än så länge hanterar vi bara png och jpg filer, skippa att visa allting annat.
